@@ -9,14 +9,14 @@ VRA_APPS_FQDN = $4
 VRA_IAAS_FQDN = $5
 
 cp CentOS66-x86_64-ks.cfg CentOS66-x86_64/ks.cfg
+sed -i 's/<--PKG_LOCATION-->/${PKG_LOCATION}/g' CentOS66-x86_64/ks.cfg
+sed -i 's/<---VRA_FQDN-->/${VRA_FQDN}/g' CentOS66-x86_64/ks.cfg
 
 mkdir -p bin
 rm -rf bin/*
 
 mkisofs -r -T -J -V "CENTOS6X8664" -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o bin/CentOS6-x86_64.iso CentOS66-x86_64
 
-sed -i 's/<--PKG_LOCATION-->/${PKG_LOCATION}/g' CentOS66-x86_64/ks.cfg
-sed -i 's/<---VRA_FQDN-->/${-VRA_FQDN}/g' CentOS66-x86_64/ks.cfg
 
 cp CentOS66-x86_64-ks.cfg bin/
 
