@@ -9,7 +9,7 @@ VRA_IAAS_FQDN=$4
 
 cp CentOS66-x86_64-ks.cfg CentOS66-x86_64/ks.cfg
 sed -i "s/<--PKG_LOCATION-->/${PKG_LOCATION}/g" CentOS66-x86_64/ks.cfg
-sed -i "s/<---VRA_FQDN-->/${VRA_FQDN}/g" CentOS66-x86_64/ks.cfg
+sed -i "s/<--VRA_FQDN-->/${VRA_FQDN}/g" CentOS66-x86_64/ks.cfg
 
 mkdir -p bin
 rm -rf bin/*
