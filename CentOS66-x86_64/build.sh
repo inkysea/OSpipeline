@@ -2,11 +2,10 @@
 
 cd `dirname $0`
 
-PKG_LOCATION = $1
-PREP_SCRIPT_LOCATION = $2
-VRA_FQDN = $3
-VRA_APPS_FQDN = $4
-VRA_IAAS_FQDN = $5
+PKG_LOCATION=$1
+VRA_FQDN=$2
+VRA_APPS_FQDN=$3
+VRA_IAAS_FQDN=$4
 
 cp CentOS66-x86_64-ks.cfg CentOS66-x86_64/ks.cfg
 sed -i 's/<--PKG_LOCATION-->/${PKG_LOCATION}/g' CentOS66-x86_64/ks.cfg
