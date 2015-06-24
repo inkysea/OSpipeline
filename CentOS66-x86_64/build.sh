@@ -8,8 +8,8 @@ VRA_APPS_FQDN=$3
 VRA_IAAS_FQDN=$4
 
 cp CentOS66-x86_64-ks.cfg CentOS66-x86_64/ks.cfg
-sed -i 's/<--PKG_LOCATION-->/${PKG_LOCATION}/g' CentOS66-x86_64/ks.cfg
-sed -i 's/<---VRA_FQDN-->/${VRA_FQDN}/g' CentOS66-x86_64/ks.cfg
+sed -i "s/<--PKG_LOCATION-->/${PKG_LOCATION}/g" CentOS66-x86_64/ks.cfg
+sed -i "s/<---VRA_FQDN-->/${VRA_FQDN}/g" CentOS66-x86_64/ks.cfg
 
 mkdir -p bin
 rm -rf bin/*
@@ -21,9 +21,9 @@ cp CentOS66-x86_64-ks.cfg bin/
 
 cd ..
 
-find post-installation/ -type f -exec sed -i 's/<--VRA_FQDN-->/${VRA_FQDN}/g' {} \;
-find post-installation/ -type f -exec sed -i 's/<--VRA_APPS_FQDN-->/${VRA_APPS_FQDN}/g' {} \;
-find post-installation/ -type f -exec sed -i 's/<--VRA_IAAS_FQDN-->/${VRA_IAAS_FQDN}/g' {} \;
+find post-installation/ -type f -exec sed -i "s/<--VRA_FQDN-->/${VRA_FQDN}/g" {} \;
+find post-installation/ -type f -exec sed -i "s/<--VRA_APPS_FQDN-->/${VRA_APPS_FQDN}/g" {} \;
+find post-installation/ -type f -exec sed -i "s/<--VRA_IAAS_FQDN-->/${VRA_IAAS_FQDN}/g" {} \;
 
 tar -cf CentOS66-x86_64/bin/scripts.tar post-installation/*.sh
 gzip CentOS66-x86_64/bin/scripts.tar
