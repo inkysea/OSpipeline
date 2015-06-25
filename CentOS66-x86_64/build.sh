@@ -2,10 +2,9 @@
 
 cd `dirname $0`
 
-PKG_LOCATION=$1
-VRA_FQDN=$2
-VRA_APPS_FQDN=$3
-VRA_IAAS_FQDN=$4
+VRA_FQDN=$1
+VRA_APPS_FQDN=$2
+VRA_IAAS_FQDN=$3
 
 cp CentOS66-x86_64-ks.cfg CentOS66-x86_64/ks.cfg
 
