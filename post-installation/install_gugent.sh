@@ -3,7 +3,7 @@
 # process funtion necessary for utilizing the gugent with kickstart
 function process() {
     while true; do
-        /usr/bin/gugent --host=cloudportal.corp.local --ssl --config=/usr/share/gugent/gugent.properties --script=/usr/share/gugent/site
+        /usr/bin/gugent --host=<--VRA_IAAS_FQDN--> --ssl --config=/usr/share/gugent/gugent.properties --script=/usr/share/gugent/site
         if [ $? -eq 0 ]; then
             break
         fi
