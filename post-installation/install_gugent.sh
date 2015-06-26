@@ -3,7 +3,7 @@
 # process funtion necessary for utilizing the gugent with kickstart
 function process() {
     while true; do
-        /usr/bin/gugent --host=<--VRA_FQDN--> --ssl --config=/usr/share/gugent/gugent.properties --script=/usr/share/gugent/site
+        /usr/bin/gugent --host=cloudportal.corp.local --ssl --config=/usr/share/gugent/gugent.properties --script=/usr/share/gugent/site
         if [ $? -eq 0 ]; then
             break
         fi
@@ -16,13 +16,17 @@ cd /tmp/
 
 wget -q http://<--VRA_APPS_FQDN-->/agent/jre-1.7.0_72-lin64.zip
 mkdir /opt/vmware-jre
+
 unzip -d /opt/vmware-jre jre-1.7.0_72-lin64.zip
+
 
 wget -q http://<--VRA_APPS_FQDN-->/agent/vmware-appdirector-agent-service-vcac_6.0.0.0-0_x86_64.rpm
 
 wget --no-check-certificate -q https://<--VRA_FQDN-->:5480/installer/LinuxGuestAgentPkgs.zip
 
-rpm -i /tmp/LinuxGuestAgentPkgs/rhel6-amd64/gugent-6.2.0-103014.x86_64.rpm
+unzip -o /tmp/LinuxGuestAgentPkgs.zip
+
+rpm -i /tmp/LinuxGuestAgentPkgs/rhel6-amd64/gugent-*.rpm
 
 rpm -i vmware-appdirector-agent-service-vcac_6.0.0.0-0_x86_64.rpm
 
